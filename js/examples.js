@@ -230,7 +230,6 @@ require(['explaingit'], function (explainGit) {
             {
               elements[i].style.display = 'none';
             }
-            document.getElementById('fork-me').style.display = 'none';
 
             explainGit.reset();
 
