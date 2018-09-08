@@ -3,17 +3,13 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>Explain Git with D3</title>
-<script data-main="js/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.4/require.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/1140/2.0/1140.css">
+<script data-main="js/main" src="js/require.js"></script>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/1140.css">
 <link rel="stylesheet" href="css/explaingit.css">
 </head>
 <body>
-<a href="https://github.com/onlywei/explain-git-with-d3" id="fork-me">
-  <img style="position: absolute; top: 0; right: 0; border: 0;"
-    src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
-    alt="Fork me on GitHub">
-</a>
+
 <div class="container">
   <div class="row intro">
     <div class="twelvecol">
@@ -517,18 +513,18 @@ require(['explaingit'], function (explainGit) {
                 {id: 'ee5df4b', parent: '090e2b8', tags: ['master']}
             ],
             initialMessage:
-                'Have fun.'
+                '動手試試看吧!'
         }
     };
 
     window.addEventListener('hashchange', open, false);
     window.addEventListener('load', open, false);
-    
+
     function open() {
         var hash = window.location.hash.substr(1),
             linkId = 'open-' + hash,
             example = examples[hash];
-        
+
         if (example) {
             explainGit.reset();
             document.getElementById(linkId).classList.add('selected');
@@ -540,7 +536,7 @@ require(['explaingit'], function (explainGit) {
               elements[i].style.display = 'none';
             }
             document.getElementById('fork-me').style.display = 'none';
-            
+
             explainGit.reset();
 
             explainGit.open({
@@ -550,7 +546,7 @@ require(['explaingit'], function (explainGit) {
                     {id: 'e137e9b', tags: ['master'], message: 'first commit'}
                 ],
                 initialMessage:
-                    'Have fun.'
+                    '動手試試看吧!'
             });
         }
     }
