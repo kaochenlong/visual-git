@@ -8,7 +8,7 @@ define(['d3'], function () {
     function ControlBox(config) {
         this.historyView = config.historyView;
         this.originView = config.originView;
-        this.initialMessage = config.initialMessage || 'Enter git commands below.';
+        this.initialMessage = config.initialMessage || '在下方的輸入框輸入 Git 指令';
         this._commandHistory = [];
         this._currentCommand = -1;
         this._tempCommand = '';
@@ -29,7 +29,7 @@ define(['d3'], function () {
 
             input = cBoxContainer.append('input')
                 .attr('type', 'text')
-                .attr('placeholder', 'enter git command');
+                .attr('placeholder', '輸入 Git 指令');
 
             input.on('keyup', function () {
                 var e = d3.event;
@@ -138,7 +138,7 @@ define(['d3'], function () {
         },
 
         error: function (msg) {
-            msg = msg || 'I don\'t understand that.';
+            msg = msg || '抱歉，看不懂這個指令';
             this.log.append('div').classed('error', true).html(msg);
             this._scrollToBottom();
         },
@@ -231,18 +231,12 @@ define(['d3'], function () {
 
         tag: function (args) {
             if (args.length < 1) {
-                this.info(
-                    'You need to give a tag name. ' +
-                    'Normally if you don\'t give a name, ' +
-                    'this command will list your local tags on the screen.'
-                );
-
+                this.info('你需要給 tag 一個名字，如果沒給名字的話，這個指令會列出目前你所有的 tag。');
                 return;
             }
-            
+
             while (args.length > 0) {
                 var arg = args.shift();
-
                 try {
                     this.historyView.tag(arg);
                 } catch (err) {
@@ -507,7 +501,6 @@ define(['d3'], function () {
 
         config: function (args) {
             var path = args.shift().split('.');
-
             if (path[0] === 'branch') {
                 if (path[2] === 'rebase') {
                     this.rebase[path[1]] = args.pop();
